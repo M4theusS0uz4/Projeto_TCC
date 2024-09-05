@@ -271,40 +271,39 @@ body {
     }
 }
 
+
+
+/* Estilo unificado para o tooltip */
 .error-tooltip {
     display: none;
-    position: absolute;
-    background-color: #ffffff; /* Fundo branco */
-    color: #000000; /* Cor do texto */
-    padding: 8px;
-    border-radius: 4px;
-    border: 0.2px solid #162938; /* Borda cinza clara */
-    box-shadow: 5px 4px 6px rgb(208, 208, 208);
-    font-size: 0.85em;
-    font-family: sans-serif, serif;
-    font-weight: bold;
-    max-width: 250px;
-    z-index: 10; /* Elevar o tooltip acima dos outros elementos */
-    top: 105%; /* Colocar o tooltip logo abaixo do campo */
-    left: 40%;
-    margin-top: 5px; /* Espaço entre o campo e o tooltip */
-}
-
-
-
-/* Estilo básico para o tooltip */
-.error-tooltip {
     position: absolute;
     background: #ffffff; /* Cor de fundo do tooltip */
     color: #000000; /* Cor do texto */
     border: 1px solid #162938; /* Cor da borda */
     border-radius: 4px;
-    padding: 5px;
-    font-size: 12px;
-    display: none;
-    z-index: 1000;
-    width: 200px; /* Largura opcional para o tooltip */
+    padding: 8px; /* Ajuste conforme necessário */
+    font-size: 12px; /* Ajuste conforme necessário */
+    font-family: sans-serif, serif;
+    font-weight: bold;
+    max-width: 250px; /* Ajuste conforme necessário */
+    z-index: 1000; /* Garante que o tooltip fique acima dos outros elementos */
+    top: 120%; /* Ajuste para posicionar o tooltip logo abaixo do campo */
+    left: 40%; /* Ajuste para centralizar horizontalmente */
+    box-shadow: 5px 4px 6px rgb(208, 208, 208); /* Sombra opcional */
 }
+
+/* Estilo do triângulo do tooltip */
+.error-tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%; /* Posiciona o triângulo acima do tooltip */
+    left: 50%;
+    margin-left: -5px; /* Centraliza o triângulo em relação ao tooltip */
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent; /* Triângulo com a mesma cor de fundo do tooltip */
+}
+
 
 /* Estilo do triângulo */
 .error-tooltip::after {
@@ -317,33 +316,3 @@ body {
     border-style: solid;
     border-color: transparent transparent #162938 transparent; /* Triângulo com a mesma cor de fundo do tooltip */
 }
-/* Estilo para a mensagem de erro personalizada */
-.custom-required-error {
-    position: absolute;
-    background: #ffffff; /* Cor de fundo da mensagem de erro */
-    color: #721c24; /* Cor do texto da mensagem de erro */
-    border: 1px solid #f5c6cb; /* Cor da borda da mensagem de erro */
-    border-radius: 4px;
-    padding: 5px;
-    font-size: 12px;
-    display: none; /* Inicialmente escondido */
-    z-index: 1000;
-    width: 200px; /* Largura opcional para a mensagem de erro */
-    top: 100%; /* Posiciona a mensagem abaixo do campo */
-    left: 50%;
-    margin-left: -100px; /* Centraliza a mensagem em relação ao campo */
-}
-
-/* Estilo do triângulo da mensagem de erro personalizada */
-.custom-required-error::after {
-    content: "";
-    position: absolute;
-    bottom: 100%; /* Posiciona o triângulo acima da mensagem de erro */
-    left: 50%;
-    margin-left: -7px; /* Centraliza o triângulo em relação à mensagem de erro */
-    border-width: 10px;
-    border-style: solid;
-    border-color: transparent transparent #ffffff transparent; /* Triângulo com a mesma cor de fundo da mensagem de erro */
-    border-top: 2px solid #f5c6cb; /* Borda superior do triângulo */
-}
-
