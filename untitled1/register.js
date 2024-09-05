@@ -20,7 +20,7 @@ document.querySelector('form').addEventListener('submit', function(event) {
     phoneError.textContent = '';
     phoneError.style.display = 'none';
 
-    if (phone.length !== 9) {
+    if (phone.length !== 14) {
         phoneError.textContent = 'O campo telefone deve conter 9 dígitos.';
         phoneError.style.display = 'block';
         isValid = false;
@@ -73,23 +73,20 @@ document.querySelector('form').addEventListener('submit', function(event) {
     }
 });
 
-document.getElementById('phone').addEventListener('input', function (event) {
+
+// Formata o número de telefone ao digitar
+document.getElementById('phone').addEventListener('input', function(event) {
     let input = event.target.value;
-    const ddd = document.getElementById('ddd-select').value;
+    // Remove todos os caracteres não numéricos
+    let formattedNumber = input.replace(/\D/g, '');
 
-    // Remove caracteres não numéricos
-   let phoneNumber = input.replace(/\D/g, '');
-
-    // Verifica se o DDD já está presente
-    if (phoneNumber.startsWith(ddd)) {
-        phoneNumber = phoneNumber.substring(ddd.length); // Remove o DDD se já estiver presente
+    // Adiciona o hífen quando o número tiver 9 dígitos
+    if (formattedNumber.length > 5) {
+        formattedNumber = formattedNumber.slice(0, 5) + '-' + formattedNumber.slice(5);
     }
 
-
-    // Formatar o número de telefone
-    if (input.length > 5) {
-        input = input.replace(/(\d{5})(\d{1,4})/, '$1-$2');
-    }
-
-    event.target.value = `(${ddd}) ${input}`;
+    // Atualiza o valor do input
+    event.target.value = formattedNumber;
 });
+
+
